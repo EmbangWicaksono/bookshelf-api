@@ -14,7 +14,7 @@ const drin = async () => {
   })
 
   await server.start()
-  console.log('server started at %s', server.info.uri)
+  console.log(`server running at ${server.info.uri}`)
 }
 
 process.on('unhandledRejection', (error) => {
