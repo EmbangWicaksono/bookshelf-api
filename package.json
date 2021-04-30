@@ -1,0 +1,23 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "description": "this project is create an api to save book data using hapi framework",
+  "main": "server.js",
+  "scripts": {
+    "build": "nodemon ./src/server.js",
+    "start": "node ./src/server.js"
+  },
+  "keywords": [
+    "hapi",
+    "nodeJS",
+    "rest_api"
+  ],
+  "author": "embang aulia wicaksono",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.1.2"
+  }
+}
