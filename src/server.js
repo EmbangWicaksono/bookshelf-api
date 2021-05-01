@@ -19,7 +19,7 @@ const drin = async () => {
 }
 
 process.on('unhandledRejection', (error) => {
-  console.log(error.message)
+  console.log(`ERROR: ${error.message}`)
   process.exit(1)
 })
 drin()
