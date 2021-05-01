@@ -7,11 +7,7 @@ const drin = async () => {
     port: 3000
   })
 
-  server.route({
-    path: '/',
-    method: 'GET',
-    handler: () => 'welcome to hapi'
-  })
+  server.route(routes)
 
   await server.start()
   console.log(`server running at ${server.info.uri}`)
