@@ -53,7 +53,28 @@ const addBook = (request, h) => {
 }
 
 const getAllBooks = (request, h) => {
-  const booklist = books.map(book => ({ id: book.id, name: book.name, publisher: book.publisher }))
+  let booklist = books
+  const { reading, name, finished } = request.query
+  if (reading) {
+    if (reading === 1 || reading === '1') {
+      booklist = booklist.filter(book => book.reading === true)
+    } else {
+      booklist = booklist.filter(book => book.reading === false)
+    }
+  }
+  if (finished) {
+    if (finished === 1 || finished === '1') {
+      console.log(finished)
+      booklist = booklist.filter(book => book.finished === true)
+    } else {
+      booklist = booklist.filter(book => book.finished === false)
+    }
+  }
+  if (name) {
+    const bookName = name.toLowerCase()
+    booklist = booklist.filter(book => book.name.toLowerCase().includes(bookName))
+  }
+  booklist = booklist.map(book => ({ id: book.id, name: book.name, publisher: book.publisher }))
   const response = h.response({
     status: 'success',
     data: {
