@@ -86,9 +86,9 @@ const updateBook = (request, h) => {
   const index = books.findIndex(bookItem => bookItem.id === bookId)
   const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload
 
-  const updatedAt = new Date().toISOString()
-  const finished = (pageCount === readPage)
   if (index !== -1) {
+    const updatedAt = new Date().toISOString()
+    const finished = (pageCount === readPage)
     if (readPage > pageCount) {
       const response = h.response({
         status: 'fail',
