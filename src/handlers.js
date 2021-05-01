@@ -123,4 +123,25 @@ const updateBook = (request, h) => {
   response.code(404)
   return response
 }
-module.exports = { addBook, getAllBooks, getBookDetails, updateBook }
+
+const deleteBook = (request, h) => {
+  const { bookId } = request.params
+  const index = books.findIndex(bookItem => bookItem.id === bookId)
+
+  if (index !== -1) {
+    books.splice(index, 1)
+    const response = h.response({
+      status: 'success',
+      message: 'Buku berhasil dihapus'
+    })
+    response.code(200)
+    return response
+  }
+  const response = h.response({
+    status: 'fail',
+    message: 'Buku gagal dihapus. Id tidak ditemukan'
+  })
+  response.code(404)
+  return response
+}
+module.exports = { addBook, getAllBooks, getBookDetails, updateBook, deleteBook }
