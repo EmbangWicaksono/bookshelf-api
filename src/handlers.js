@@ -64,7 +64,6 @@ const getAllBooks = (request, h) => {
   }
   if (finished) {
     if (finished === 1 || finished === '1') {
-      console.log(finished)
       booklist = booklist.filter(book => book.finished === true)
     } else {
       booklist = booklist.filter(book => book.finished === false)
