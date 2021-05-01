@@ -52,12 +52,17 @@ const addBook = (request, h) => {
   return response
 }
 
-const getAllBooks = () => ({
-  status: 'success',
-  data: {
-    books
-  }
-})
+const getAllBooks = (request, h) => {
+  const booklist = books.map(book => ({ id: book.id, name: book.name, publisher: book.publisher }))
+  const response = h.response({
+    status: 'success',
+    data: {
+      books: booklist
+    }
+  })
+  response.code(200)
+  return response
+}
 
 const getBookDetails = (request, h) => {
   const { bookId } = request.params
