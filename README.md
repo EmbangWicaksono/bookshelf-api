@@ -21,5 +21,5 @@ this APi does not use database to store all the data but use local memory instea
 4. run the project by command `npm run start`
 5. the program will be started in `http:localhost:3000`
 
-to send a request to the server, you can use application such as [POSTMAN](https://www.postman.com/) or CuRL
+to send a request to the server, you can use application such as [POSTMAN](https://www.postman.com/) or CuRL <br/>
 Matur Suwun 🙏
