@@ -106,7 +106,7 @@ const updateBook = (request, h) => {
   }
   if (index !== -1) {
     books[index] = {
-      ...books[index], name, year, author, summary, publisher, pageCount, readPage, reading
+      ...books[index], name, year, author, summary, publisher, pageCount, readPage, reading, updatedAt, finished
     }
     const response = h.response({
       status: 'success',
