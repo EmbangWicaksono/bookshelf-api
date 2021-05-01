@@ -1,4 +1,4 @@
-const books = require('books')
+const books = require('./books')
 const { nanoid } = require('nanoid')
 
 const addBook = (request, h) => {
@@ -52,4 +52,11 @@ const addBook = (request, h) => {
   return response
 }
 
-module.exports = { addBook }
+const getAllBooks = () => ({
+  status: 'success',
+  data: {
+    books
+  }
+})
+
+module.exports = { addBook, getAllBooks }
