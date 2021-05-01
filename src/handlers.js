@@ -88,23 +88,23 @@ const updateBook = (request, h) => {
 
   const updatedAt = new Date().toISOString()
   const finished = (pageCount === readPage)
-  if (readPage > pageCount) {
-    const response = h.response({
-      status: 'fail',
-      message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount'
-    })
-    response.code(400)
-    return response
-  }
-  if (!name) {
-    const response = h.response({
-      status: 'fail',
-      message: 'Gagal memperbarui buku. Mohon isi nama buku'
-    })
-    response.code(400)
-    return response
-  }
   if (index !== -1) {
+    if (readPage > pageCount) {
+      const response = h.response({
+        status: 'fail',
+        message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount'
+      })
+      response.code(400)
+      return response
+    }
+    if (!name) {
+      const response = h.response({
+        status: 'fail',
+        message: 'Gagal memperbarui buku. Mohon isi nama buku'
+      })
+      response.code(400)
+      return response
+    }
     books[index] = {
       ...books[index], name, year, author, summary, publisher, pageCount, readPage, reading, updatedAt, finished
     }
